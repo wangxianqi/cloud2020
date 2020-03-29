@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="my" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="false"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!--数据库链接地址账号密码-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/springcloud2020?" userId="root"
+                        password="root"/>
+
+        <!--1、生成Model类存放位置-->
+        <javaModelGenerator targetPackage="com.guigu.springcloud.entities"
+                            targetProject="E:\gomeproject\cloud2020\cloud-provider-payment8001\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--2、生成映射文件存放位置-->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="E:\gomeproject\cloud2020\cloud-provider-payment8001\src\main\resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!--3、生成mapper类存放位置-->
+        <javaClientGenerator targetPackage="com.guigu.springcloud.mapper"
+                             targetProject="E:\gomeproject\cloud2020\cloud-provider-payment8001\src\main\java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--4、生成对应表及类名-->
+        <table tableName="payment" domainObjectName="Payment"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
+
+
+        <!--说明: a、修改123步骤中代码的实际存放路径 b、修改4中的表名以及实体的名称 c、在 模块的根目录执行命令mvn mybatis-generator:generate-->
+    </context>
+</generatorConfiguration>
